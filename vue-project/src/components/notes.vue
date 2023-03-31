@@ -17,6 +17,7 @@
 <script>
 export default {
   name: "notes",
+  sequence: ["A"],
   data() {
     return {
       sequence: [],

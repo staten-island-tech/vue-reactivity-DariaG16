@@ -11,7 +11,7 @@ import notes from "./components/notes.vue";
     <measures />
   </header>
   <body>
-    <currentSong title="t" />
+    <currentSong v-for="note in notes.sequence" key:note v-bind:title="note" />
     <savedSongs />
     <notes id="notes" @click="displayNote" />
   </body>
@@ -20,6 +20,9 @@ import notes from "./components/notes.vue";
 <script>
 function displayNote() {}
 components: {
+  notes;
+  currentSong;
+  savedSongs;
   notes;
 } //export default nsmm
 </script>
