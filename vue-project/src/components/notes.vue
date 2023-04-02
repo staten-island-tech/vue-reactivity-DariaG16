@@ -1,12 +1,12 @@
 <template>
   <div id="notes">
     <button
-      v-for="note in notes"
+      v-for="note in notesArr"
+      :key="note"
       @click="
         pushInArr(note);
         $emit('displayNote');
       "
-      :key="note"
       :style="`background-color: ` + note.color"
     >
       {{ note.note }}
@@ -17,11 +17,9 @@
 <script>
 export default {
   name: "notes",
-  sequence: ["A"],
   data() {
     return {
-      sequence: [],
-      notes: [
+      notesArr: [
         { note: "C", color: `#8D4A4A`, sound: `.\public\C-piano.wav` },
         { note: "D", color: `#94593F`, sound: `.\public\D-piano.wav` },
         { note: "E", color: `#8B814B`, sound: `.\public\E-piano.wav` },
@@ -34,7 +32,7 @@ export default {
   },
   methods: {
     pushInArr(n) {
-      this.sequence.push(n);
+      notes.sequence.push(n);
       console.log(`${n.note} hi`);
     },
   },

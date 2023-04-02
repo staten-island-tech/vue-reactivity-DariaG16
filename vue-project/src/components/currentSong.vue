@@ -20,8 +20,6 @@ export default {
   height: 250px;
   margin: 10 10px;
   padding: 80px 30px 80px;
-}
-h3 {
   letter-spacing: 60px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
