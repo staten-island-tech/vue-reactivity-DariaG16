@@ -12,9 +12,9 @@ import notes from "./components/notes.vue";
   </header>
   <body>
     <currentSong
-      v-for="note in sequence"
-      :key="note"
-      :title="note.note"
+      v-for="note in notes.sequence"
+      key:note
+      v-bind:title="note"
       :style="`background-color: ` + note.color"
     />
     <savedSongs />
@@ -23,22 +23,6 @@ import notes from "./components/notes.vue";
 </template>
 
 <script>
-export default {
-  name: "current",
-  data() {
-    return {
-      sequence: [
-        { note: "C", color: `#8D4A4A`, sound: `.\public\C-piano.wav` },
-        { note: "D", color: `#94593F`, sound: `.\public\D-piano.wav` },
-        { note: "E", color: `#8B814B`, sound: `.\public\E-piano.wav` },
-        { note: "F", color: `#426648`, sound: `.\public\F-piano.wav` },
-        { note: "G", color: `#494266`, sound: `.\public\G-piano.wav` },
-        { note: "A", color: `#5F4266`, sound: `.\public\C-piano.wav` },
-        { note: "B", color: `#8B4366`, sound: `.\public\C-piano.wav` },
-      ],
-    };
-  },
-};
 function displayNote() {}
 components: {
   notes;
