@@ -12,8 +12,16 @@ export default {
   data() {
     return {
       sequence: [
-        { note: "C", color: `#8D4A4A`, sound: `.\public\C-piano.wav` },
-        { note: "D", color: `#94593F`, sound: `.\public\D-piano.wav` },
+        {
+          note: "I'm so sorry",
+          color: `#8D4A4A`,
+          sound: `.\public\C-piano.wav`,
+        },
+        {
+          note: "This isn't done yet:(((",
+          color: `#94593F`,
+          sound: `.\public\D-piano.wav`,
+        },
         { note: "E", color: `#8B814B`, sound: `.\public\E-piano.wav` },
         { note: "F", color: `#426648`, sound: `.\public\F-piano.wav` },
         { note: "G", color: `#494266`, sound: `.\public\G-piano.wav` },
