@@ -38,7 +38,7 @@ import playBtn from "./components/playBtn.vue";
 </template>
 
 <script>
-let myAudio = new Audio(`./public/C-piano.wav`);
+let myAudio = new Audio(`./public/G-piano.wav`);
 //myAudio.src = notes[0]; //how to access sequence from here
 export default {
   name: "Home",
