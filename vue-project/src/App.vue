@@ -26,20 +26,24 @@ import playBtn from "./components/playBtn.vue";
     <div id="notes">
       <notes
         id="btn"
-        v-for="note in notes"
-        @note-click="pushInArr"
-        :key="note"
-        :style="`background-color: ` + note.color"
+        v-for="item in notesArr"
+        @note-click="pushInArr(item)"
+        :key="item"
+        :style="`background-color: ` + item.color"
       >
-        {{ note.note }}
+        {{ item.note }}
       </notes>
     </div>
   </body>
 </template>
 
 <script>
-let myAudio = new Audio(`./public/G-piano.wav`);
-//myAudio.src = notes[0]; //how to access sequence from here
+let myAudio = [
+  new Audio(`./public/C-piano.wav`),
+  new Audio(`./public/E-piano.wav`),
+  new Audio(`./public/G-piano.wav`),
+];
+//myAudio.src = notes.sound[0]; //how to access sequence from here
 export default {
   name: "Home",
   components: {
@@ -51,7 +55,7 @@ export default {
         { note: "B", color: `#8B4366`, sound: `./public/B-piano.wav` },
         { note: "A", color: `#5F4266`, sound: `./public/A-piano.wav` },
       ],
-      notes: [
+      notesArr: [
         { note: "C", color: `#8D4A4A`, sound: `./public/C-piano.wav` },
         { note: "D", color: `#94593F`, sound: `./public/D-piano.wav` },
         { note: "E", color: `#8B814B`, sound: `./public/E-piano.wav` },
@@ -63,16 +67,20 @@ export default {
     };
   },
   methods: {
-    pushInArr: function (n) {
+    pushInArr(n) {
       console.log(`HI world ${n}`);
-      /* this.sequence.push(n);
-      this.sequence.forEach((note) => {
-        console.log(`${note.note}`);
-      }); */
+      this.sequence.push(n);
+      this.sequence.forEach((item) => {
+        console.log(`${item.note}`);
+      });
     },
     play: function () {
       console.log("play");
-      myAudio.play();
+      myAudio.forEach(async (el, index) => {
+        setTimeout(function () {
+          el.play();
+        }, index * 300);
+      });
     },
     pause: function () {
       console.log("pause");
