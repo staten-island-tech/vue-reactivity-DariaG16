@@ -24,7 +24,7 @@ import playBtn from "./components/playBtn.vue";
     <playBtn @btn-click="play">Play</playBtn>
     <playBtn @btn-click="pause">Stop</playBtn>
     <div id="notes">
-      <button
+      <notes
         id="btn"
         v-for="note in notes"
         @note-click="pushInArr"
@@ -32,7 +32,7 @@ import playBtn from "./components/playBtn.vue";
         :style="`background-color: ` + note.color"
       >
         {{ note.note }}
-      </button>
+      </notes>
     </div>
   </body>
 </template>
@@ -44,13 +44,12 @@ export default {
   name: "Home",
   components: {
     currentSong,
-    notes,
   },
   data() {
     return {
       sequence: [
-        { note: "B", color: `#8B4366`, sound: `./public/C-piano.wav` },
-        { note: "A", color: `#5F4266`, sound: `./public/C-piano.wav` },
+        { note: "B", color: `#8B4366`, sound: `./public/B-piano.wav` },
+        { note: "A", color: `#5F4266`, sound: `./public/A-piano.wav` },
       ],
       notes: [
         { note: "C", color: `#8D4A4A`, sound: `./public/C-piano.wav` },
@@ -58,8 +57,8 @@ export default {
         { note: "E", color: `#8B814B`, sound: `./public/E-piano.wav` },
         { note: "F", color: `#426648`, sound: `./public/F-piano.wav` },
         { note: "G", color: `#494266`, sound: `./public/G-piano.wav` },
-        { note: "A", color: `#5F4266`, sound: `./public/C-piano.wav` },
-        { note: "B", color: `#8B4366`, sound: `./public/C-piano.wav` },
+        { note: "A", color: `#5F4266`, sound: `./public/A-piano.wav` },
+        { note: "B", color: `#8B4366`, sound: `./public/B-piano.wav` },
       ],
     };
   },
