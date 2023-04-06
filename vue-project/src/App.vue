@@ -38,11 +38,6 @@ import playBtn from "./components/playBtn.vue";
 </template>
 
 <script>
-let myAudio = [
-  new Audio(`./public/C-piano.wav`),
-  new Audio(`./public/E-piano.wav`),
-  new Audio(`./public/G-piano.wav`),
-];
 //myAudio.src = notes.sound[0]; //how to access sequence from here
 export default {
   name: "Home",
@@ -51,10 +46,8 @@ export default {
   },
   data() {
     return {
-      sequence: [
-        { note: "B", color: `#8B4366`, sound: `./public/B-piano.wav` },
-        { note: "A", color: `#5F4266`, sound: `./public/A-piano.wav` },
-      ],
+      myAudio: [],
+      sequence: [],
       notesArr: [
         { note: "C", color: `#8D4A4A`, sound: `./public/C-piano.wav` },
         { note: "D", color: `#94593F`, sound: `./public/D-piano.wav` },
@@ -64,27 +57,29 @@ export default {
         { note: "A", color: `#5F4266`, sound: `./public/A-piano.wav` },
         { note: "B", color: `#8B4366`, sound: `./public/B-piano.wav` },
       ],
+      measure: ``,
     };
   },
   methods: {
     pushInArr(n) {
-      console.log(`HI world ${n}`);
       this.sequence.push(n);
-      this.sequence.forEach((item) => {
+      this.myAudio.push(new Audio(n.sound));
+      console.log(this.myAudio);
+      /*       this.sequence.forEach((item) => {
         console.log(`${item.note}`);
-      });
+      }); */
     },
     play: function () {
       console.log("play");
-      myAudio.forEach(async (el, index) => {
+      this.myAudio.forEach(async (sound, index) => {
         setTimeout(function () {
-          el.play();
+          sound.play();
         }, index * 300);
       });
     },
     pause: function () {
       console.log("pause");
-      myAudio.pause();
+      //  sound.pause();
     },
   },
 };
