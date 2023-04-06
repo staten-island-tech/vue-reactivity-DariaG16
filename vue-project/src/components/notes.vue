@@ -13,12 +13,11 @@ button {
   cursor: pointer;
   display: block;
   text-align: center;
-  padding: 30px;
+  padding: 10px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 40px;
-  color: black;
-  font-weight: 550;
-  margin: 30px;
+  font-size: 15px;
+  color: #eee8ef;
+  margin: 3px;
 }
 </style>
