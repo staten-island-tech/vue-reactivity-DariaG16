@@ -8,8 +8,16 @@ import playBtn from "./components/playBtn.vue";
 <template>
   <header>
     <h1>Make a Song</h1>
-    <measures />
+    <section id="container">
+      <h2>T e m p o</h2>
+      <div id="tempo">
+        <measures @msr-click="changeMsr1">largo</measures>
+        <measures @msr-click="changeMsr2">andante</measures>
+        <measures @msr-click="changeMsr3">vivace</measures>
+      </div>
+    </section>
   </header>
+
   <body>
     <div id="current">
       <currentSong
@@ -21,8 +29,13 @@ import playBtn from "./components/playBtn.vue";
         {{ note2.note }}
       </currentSong>
     </div>
-    <playBtn @btn-click="play">Play</playBtn>
-    <playBtn @btn-click="pause">Stop</playBtn>
+    <div id="playPause">
+      <playBtn @btn-click="play">Play</playBtn>
+      <playBtn @btn-click="play">Pause</playBtn>
+      <playBtn @btn-click="undo">Undo</playBtn>
+      <playBtn @btn-click="clearArr">Delete</playBtn>
+    </div>
+
     <div id="notes">
       <notes
         id="btn"
@@ -95,7 +108,7 @@ export default {
         { note: "½", color: `#989699`, sound: `./halfPause.mp4` },
         { note: "1", color: `#A6A3A6`, sound: `./wholePause.mp4` },
       ],
-      measure: ``,
+      measure: `300`,
     };
   },
   methods: {
@@ -112,11 +125,28 @@ export default {
       this.myAudio.forEach(async (sound, index) => {
         setTimeout(function () {
           sound.play();
-        }, index * 300);
+        }, index * this.measure);
       });
     },
     pause: function () {
-      console.log("pause");
+      clearInterval(timeValue);
+    },
+    undo: function () {
+      this.myAudio.pop();
+      this.sequence.pop();
+    },
+    clearArr: function () {
+      this.myAudio.length = 0;
+      this.sequence.length = 0;
+    },
+    changeMsr1: function () {
+      this.measure = `900`;
+    },
+    changeMsr2: function () {
+      this.measure = `750`;
+    },
+    changeMsr3: function () {
+      this.measure = `455`;
     },
   },
 };
@@ -124,13 +154,12 @@ export default {
 
 <style scoped>
 #current {
+  display: flex;
   background-color: #424966;
-  width: 1200px;
-  height: 250px;
+  width: 1400px;
   margin: 10 10px;
   padding: 80px 30px 80px;
-  letter-spacing: 20px;
-  display: flex;
+  flex-wrap: wrap;
 }
 header {
   display: flex;
@@ -151,7 +180,26 @@ h1 {
   height: 180px;
   position: fixed;
   left: 10px;
-  top: 36vw;
+  bottom: 50px;
   margin: 50px;
+}
+#container {
+  margin: 50px;
+  color: white;
+  font-size: 30px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, serif;
+  text-align: center;
+  margin-left: 8rem;
+}
+#tempo {
+  display: flex;
+  flex-direction: row;
+}
+#playPause {
+  display: flex;
+  width: 400px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 </style>

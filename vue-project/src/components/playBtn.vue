@@ -9,9 +9,11 @@ export default {
 <style scoped>
 button {
   background-color: rgb(100, 100, 172);
-  height: 10%;
-  font-size: 40px;
+
+  width: 160px;
+  font-size: 30px;
   margin: 20px;
-  padding: 40px;
+  padding: 38px;
+  text-align: center;
 }
 </style>

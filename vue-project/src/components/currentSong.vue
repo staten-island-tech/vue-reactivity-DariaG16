@@ -18,5 +18,6 @@ h2 {
   font-size: 50px;
   color: white;
   font-weight: 550;
+  margin: 20px;
 }
 </style>
