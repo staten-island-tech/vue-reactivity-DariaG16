@@ -19,23 +19,24 @@ import playBtn from "./components/playBtn.vue";
   </header>
 
   <body>
-    <div id="current">
-      <currentSong
-        v-for="note2 in sequence"
-        :key="note2"
-        v-bind:title="note2"
-        :style="`color: ` + note2.color"
-      >
-        {{ note2.note }}
-      </currentSong>
-    </div>
-    <div id="playPause">
-      <playBtn @btn-click="play">Play</playBtn>
-      <playBtn @btn-click="play">Pause</playBtn>
-      <playBtn @btn-click="undo">Undo</playBtn>
-      <playBtn @btn-click="clearArr">Delete</playBtn>
-    </div>
-
+    <section id="middle">
+      <div id="current">
+        <currentSong
+          v-for="note2 in sequence"
+          :key="note2"
+          v-bind:title="note2"
+          :style="`color: ` + note2.color"
+        >
+          {{ note2.note }}
+        </currentSong>
+      </div>
+      <div id="playPause">
+        <playBtn @btn-click="play">Play</playBtn>
+        <playBtn @btn-click="play">Pause</playBtn>
+        <playBtn @btn-click="undo">Undo</playBtn>
+        <playBtn @btn-click="clearArr">Delete</playBtn>
+      </div>
+    </section>
     <div id="notes">
       <notes
         id="btn"
@@ -166,6 +167,7 @@ header {
 }
 body {
   display: flex;
+  flex-wrap: wrap;
 }
 h1 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -175,10 +177,13 @@ h1 {
   color: white;
   font-weight: 550;
 }
+#middle {
+  display: flex;
+}
 #notes {
   display: flex;
   height: 180px;
-  position: fixed;
+  justify-content: space-between;
   left: 10px;
   bottom: 50px;
   margin: 50px;
