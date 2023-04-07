@@ -1,14 +1,18 @@
-/* color palette from <https://github.com/vuejs/theme> */
-:root {
-}
-
-/* semantic color variables for this project */
-:root {
-}
-
-@media (prefers-color-scheme: dark) {
-}
-
 body {
   background-color: #180724;
+}
+header {
+  display: flex;
+}
+body {
+  display: flex;
+  flex-wrap: wrap;
+}
+h1 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 5rem;
+  font-size: 80px;
+  color: white;
+  font-weight: 550;
 }

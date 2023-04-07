@@ -62,64 +62,274 @@ export default {
       myAudio: [],
       sequence: [],
       notesArr: [
-        { note: "C", color: `#8D4A4A`, bacCo: `#3B2F51`, sound: `./C2.mp3` },
-        { note: "D", color: `#94593F`, bacCo: `#3B2F51`, sound: `./D2.mp3` },
-        { note: "E", color: `#8B814B`, bacCo: `#3B2F51`, sound: `./E2.mp3` },
-        { note: "F", color: `#426648`, bacCo: `#3B2F51`, sound: `./F2.mp3` },
-        { note: "G", color: `#614896`, bacCo: `#3B2F51`, sound: `./G2.mp3` },
-        { note: "A", color: `#864496`, bacCo: `#3B2F51`, sound: `./A2.mp3` },
-        { note: "B", color: `#8B4366`, bacCo: `#3B2F51`, sound: `./B2.mp3` },
-        { note: "C", color: `#8D4A4A`, bacCo: `#3B2F51`, sound: `./C3.mp3` },
-        { note: "D", color: `#94593F`, bacCo: `#3B2F51`, sound: `./D3.mp3` },
-        { note: "E", color: `#8B814B`, bacCo: `#3B2F51`, sound: `./E3.mp3` },
-        { note: "F", color: `#426648`, bacCo: `#3B2F51`, sound: `./F3.mp3` },
-        { note: "G", color: `#614896`, bacCo: `#3B2F51`, sound: `./G3.mp3` },
-        { note: "A", color: `#864496`, bacCo: `#3B2F51`, sound: `./A3.mp3` },
-        { note: "B", color: `#8B4366`, bacCo: `#3B2F51`, sound: `./B3.mp3` },
-        { note: "C", color: `#8D4A4A`, bacCo: `#3B2F51`, sound: `./C4.mp3` },
-        { note: "D", color: `#94593F`, bacCo: `#3B2F51`, sound: `./D4.mp3` },
-        { note: "E", color: `#8B814B`, bacCo: `#3B2F51`, sound: `./E4.mp3` },
-        { note: "F", color: `#426648`, bacCo: `#3B2F51`, sound: `./F4.mp3` },
-        { note: "G", color: `#614896`, bacCo: `#3B2F51`, sound: `./G4.mp3` },
-        { note: "A", color: `#864496`, bacCo: `#3B2F51`, sound: `./A4.mp3` },
-        { note: "B", color: `#8B4366`, bacCo: `#3B2F51`, sound: `./B4.mp3` },
-        { note: "C", color: `#8D4A4A`, bacCo: `#3B2F51`, sound: `./C5.mp3` },
-        { note: "D", color: `#94593F`, bacCo: `#3B2F51`, sound: `./D5.mp3` },
-        { note: "E", color: `#8B814B`, bacCo: `#3B2F51`, sound: `./E5.mp3` },
-        { note: "F", color: `#426648`, bacCo: `#3B2F51`, sound: `./F5.mp3` },
-        { note: "G", color: `#614896`, bacCo: `#3B2F51`, sound: `./G5.mp3` },
-        { note: "A", color: `#864496`, bacCo: `#3B2F51`, sound: `./A5.mp3` },
-        { note: "B", color: `#8B4366`, bacCo: `#3B2F51`, sound: `./B5.mp3` },
-        { note: "C", color: `#8D4A4A`, bacCo: `#3B2F51`, sound: `./C6.mp3` },
-        { note: "D", color: `#94593F`, bacCo: `#3B2F51`, sound: `./D6.mp3` },
-        { note: "E", color: `#8B814B`, bacCo: `#3B2F51`, sound: `./E6.mp3` },
-        { note: "F", color: `#426648`, bacCo: `#3B2F51`, sound: `./F6.mp3` },
-        { note: "G", color: `#614896`, bacCo: `#3B2F51`, sound: `./G6.mp3` },
-        { note: "A", color: `#864496`, bacCo: `#3B2F51`, sound: `./A6.mp3` },
-        { note: "B", color: `#8B4366`, bacCo: `#3B2F51`, sound: `./B6.mp3` },
-        { note: "C", color: `#8D4A4A`, bacCo: `#3B2F51`, sound: `./C7.mp3` },
-        { note: "D", color: `#94593F`, bacCo: `#3B2F51`, sound: `./D7.mp3` },
-        { note: "E", color: `#8B814B`, bacCo: `#3B2F51`, sound: `./E7.mp3` },
-        { note: "F", color: `#426648`, bacCo: `#3B2F51`, sound: `./F7.mp3` },
-        { note: "G", color: `#614896`, bacCo: `#3B2F51`, sound: `./G7.mp3` },
-        { note: "A", color: `#864496`, bacCo: `#3B2F51`, sound: `./A7.mp3` },
-        { note: "B", color: `#8B4366`, bacCo: `#3B2F51`, sound: `./B7.mp3` },
+        {
+          note: "C",
+          color: `#8D4A4A`,
+          bacCo: `#424966`,
+          sound: `./C2.mp3`,
+        },
+        {
+          note: "D",
+          color: `#94593F`,
+          bacCo: `#424966`,
+          sound: `./D2.mp3`,
+        },
+        {
+          note: "E",
+          color: `#8B814B`,
+          bacCo: `#424966`,
+          sound: `./E2.mp3`,
+        },
+        {
+          note: "F",
+          color: `#426648`,
+          bacCo: `#424966`,
+          sound: `./F2.mp3`,
+        },
+        {
+          note: "G",
+          color: `#614896`,
+          bacCo: `#424966`,
+          sound: `./G2.mp3`,
+        },
+        {
+          note: "A",
+          color: `#864496`,
+          bacCo: `#424966`,
+          sound: `./A2.mp3`,
+        },
+        {
+          note: "B",
+          color: `#8B4366`,
+          bacCo: `#424966`,
+          sound: `./B2.mp3`,
+        },
+        {
+          note: "C",
+          color: `#8D4A4A`,
+          bacCo: `#424966`,
+          sound: `./C3.mp3`,
+        },
+        {
+          note: "D",
+          color: `#94593F`,
+          bacCo: `#424966`,
+          sound: `./D3.mp3`,
+        },
+        {
+          note: "E",
+          color: `#8B814B`,
+          bacCo: `#424966`,
+          sound: `./E3.mp3`,
+        },
+        {
+          note: "F",
+          color: `#426648`,
+          bacCo: `#424966`,
+          sound: `./F3.mp3`,
+        },
+        {
+          note: "G",
+          color: `#614896`,
+          bacCo: `#424966`,
+          sound: `./G3.mp3`,
+        },
+        {
+          note: "A",
+          color: `#864496`,
+          bacCo: `#424966`,
+          sound: `./A3.mp3`,
+        },
+        {
+          note: "B",
+          color: `#8B4366`,
+          bacCo: `#424966`,
+          sound: `./B3.mp3`,
+        },
+        {
+          note: "C",
+          color: `#8D4A4A`,
+          bacCo: `#424966`,
+          sound: `./C4.mp3`,
+        },
+        {
+          note: "D",
+          color: `#94593F`,
+          bacCo: `#424966`,
+          sound: `./D4.mp3`,
+        },
+        {
+          note: "E",
+          color: `#8B814B`,
+          bacCo: `#424966`,
+          sound: `./E4.mp3`,
+        },
+        {
+          note: "F",
+          color: `#426648`,
+          bacCo: `#424966`,
+          sound: `./F4.mp3`,
+        },
+        {
+          note: "G",
+          color: `#614896`,
+          bacCo: `#424966`,
+          sound: `./G4.mp3`,
+        },
+        {
+          note: "A",
+          color: `#864496`,
+          bacCo: `#424966`,
+          sound: `./A4.mp3`,
+        },
+        {
+          note: "B",
+          color: `#8B4366`,
+          bacCo: `#424966`,
+          sound: `./B4.mp3`,
+        },
+        {
+          note: "C",
+          color: `#8D4A4A`,
+          bacCo: `#424966`,
+          sound: `./C5.mp3`,
+        },
+        {
+          note: "D",
+          color: `#94593F`,
+          bacCo: `#424966`,
+          sound: `./D5.mp3`,
+        },
+        {
+          note: "E",
+          color: `#8B814B`,
+          bacCo: `#424966`,
+          sound: `./E5.mp3`,
+        },
+        {
+          note: "F",
+          color: `#426648`,
+          bacCo: `#424966`,
+          sound: `./F5.mp3`,
+        },
+        {
+          note: "G",
+          color: `#614896`,
+          bacCo: `#424966`,
+          sound: `./G5.mp3`,
+        },
+        {
+          note: "A",
+          color: `#864496`,
+          bacCo: `#424966`,
+          sound: `./A5.mp3`,
+        },
+        {
+          note: "B",
+          color: `#8B4366`,
+          bacCo: `#424966`,
+          sound: `./B5.mp3`,
+        },
+        {
+          note: "C",
+          color: `#8D4A4A`,
+          bacCo: `#424966`,
+          sound: `./C6.mp3`,
+        },
+        {
+          note: "D",
+          color: `#94593F`,
+          bacCo: `#424966`,
+          sound: `./D6.mp3`,
+        },
+        {
+          note: "E",
+          color: `#8B814B`,
+          bacCo: `#424966`,
+          sound: `./E6.mp3`,
+        },
+        {
+          note: "F",
+          color: `#426648`,
+          bacCo: `#424966`,
+          sound: `./F6.mp3`,
+        },
+        {
+          note: "G",
+          color: `#614896`,
+          bacCo: `#424966`,
+          sound: `./G6.mp3`,
+        },
+        {
+          note: "A",
+          color: `#864496`,
+          bacCo: `#424966`,
+          sound: `./A6.mp3`,
+        },
+        {
+          note: "B",
+          color: `#8B4366`,
+          bacCo: `#424966`,
+          sound: `./B6.mp3`,
+        },
+        {
+          note: "C",
+          color: `#8D4A4A`,
+          bacCo: `#424966`,
+          sound: `./C7.mp3`,
+        },
+        {
+          note: "D",
+          color: `#94593F`,
+          bacCo: `#424966`,
+          sound: `./D7.mp3`,
+        },
+        {
+          note: "E",
+          color: `#8B814B`,
+          bacCo: `#424966`,
+          sound: `./E7.mp3`,
+        },
+        {
+          note: "F",
+          color: `#426648`,
+          bacCo: `#424966`,
+          sound: `./F7.mp3`,
+        },
+        {
+          note: "G",
+          color: `#614896`,
+          bacCo: `#424966`,
+          sound: `./G7.mp3`,
+        },
+        {
+          note: "A",
+          color: `#864496`,
+          bacCo: `#424966`,
+          sound: `./A7.mp3`,
+        },
+        {
+          note: "B",
+          color: `#8B4366`,
+          bacCo: `#424966`,
+          sound: `./B7.mp3`,
+        },
         {
           note: "¼",
           color: `#868686`,
-          bacCo: `#3B2F51`,
+          bacCo: `#424966`,
           sound: `./quarterPause.mp4`,
         },
         {
           note: "½",
           color: `#989699`,
-          bacCo: `#3B2F51`,
+          bacCo: `#424966`,
           sound: `./halfPause.mp4`,
         },
         {
           note: "1",
           color: `#A6A3A6`,
-          bacCo: `#3B2F51`,
+          bacCo: `#424966`,
           sound: `./wholePause.mp4`,
         },
       ],
@@ -127,7 +337,7 @@ export default {
     };
   },
   methods: {
-    pushInArr(n) {
+    pushInArr(n, i) {
       this.sequence.push(n);
       this.myAudio.push(new Audio(n.sound));
       console.log(this.myAudio);
@@ -140,11 +350,10 @@ export default {
       });
       this.sequence.forEach(async (note, index) => {
         setTimeout(function () {
-          note.bacCo = "#ADD8E6";
+          note.bacCo = "#FFFFFF90";
         }, index * this.measure);
       });
     },
-
     undo: function () {
       this.myAudio.pop();
       this.sequence.pop();
@@ -172,23 +381,8 @@ export default {
   background-color: #424966;
   width: 1400px;
   margin: 10 10px;
-  padding: 80px 30px 80px;
+  padding: 80px 30px;
   flex-wrap: wrap;
-}
-header {
-  display: flex;
-}
-body {
-  display: flex;
-  flex-wrap: wrap;
-}
-h1 {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  margin: 5rem;
-  font-size: 80px;
-  color: white;
-  font-weight: 550;
 }
 #middle {
   display: flex;

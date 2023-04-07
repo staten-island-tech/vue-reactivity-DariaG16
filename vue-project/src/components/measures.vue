@@ -12,8 +12,11 @@ button {
   text-align: center;
   border-radius: 30px;
   margin: 0px 15px;
-
   padding: 0;
   font: inherit;
+  transition: 1s;
+}
+button:hover {
+  background-color: rgba(162, 141, 255, 0.788);
 }
 </style>
