@@ -16,8 +16,10 @@ h2 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 50px;
-  color: white;
+
   font-weight: 550;
   margin: 20px;
+  padding: 15px;
+  height: 60px;
 }
 </style>
