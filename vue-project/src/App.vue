@@ -32,7 +32,6 @@ import playBtn from "./components/playBtn.vue";
       </div>
       <div id="playPause">
         <playBtn @btn-click="play">Play</playBtn>
-        <playBtn @btn-click="play">Pause</playBtn>
         <playBtn @btn-click="undo">Undo</playBtn>
         <playBtn @btn-click="clearArr">Delete</playBtn>
       </div>
@@ -129,9 +128,9 @@ export default {
         }, index * this.measure);
       });
     },
-    pause: function () {
+    /*     pause: function () {
       clearInterval(timeValue);
-    },
+    }, */
     undo: function () {
       this.myAudio.pop();
       this.sequence.pop();
@@ -202,6 +201,7 @@ h1 {
   flex-direction: row;
 }
 #playPause {
+  justify-content: center;
   display: flex;
   width: 400px;
   flex-wrap: wrap;
