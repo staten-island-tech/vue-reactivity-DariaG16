@@ -337,10 +337,12 @@ export default {
     };
   },
   methods: {
-    pushInArr(n, i) {
+    pushInArr(n) {
       this.sequence.push(n);
       this.myAudio.push(new Audio(n.sound));
       console.log(this.myAudio);
+      let noteSound = new Audio(n.sound);
+      noteSound.play();
     },
     play: function () {
       this.myAudio.forEach(async (sound, index) => {
