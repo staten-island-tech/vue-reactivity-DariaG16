@@ -116,21 +116,20 @@ export default {
       this.sequence.push(n);
       this.myAudio.push(new Audio(n.sound));
       console.log(this.myAudio);
-      /*       this.sequence.forEach((item) => {
-        console.log(`${item.note}`);
-      }); */
     },
     play: function () {
-      console.log("play");
       this.myAudio.forEach(async (sound, index) => {
         setTimeout(function () {
           sound.play();
         }, index * this.measure);
       });
+      this.sequence.forEach(async (note, index) => {
+        setTimeout(function () {
+          note.color = "#ADD8E6";
+        }, index * this.measure);
+      });
     },
-    /*     pause: function () {
-      clearInterval(timeValue);
-    }, */
+
     undo: function () {
       this.myAudio.pop();
       this.sequence.pop();
@@ -143,10 +142,10 @@ export default {
       this.measure = `900`;
     },
     changeMsr2: function () {
-      this.measure = `750`;
+      this.measure = `400`;
     },
     changeMsr3: function () {
-      this.measure = `455`;
+      this.measure = `300`;
     },
   },
 };
