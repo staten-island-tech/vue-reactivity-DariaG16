@@ -24,8 +24,12 @@ import playBtn from "./components/playBtn.vue";
         <currentSong
           v-for="note2 in sequence"
           :key="note2"
-          v-bind:title="note2"
-          :style="[`background-color: ` + note2.bacCo, `color: ` + note2.color]"
+          :title="note2"
+          :style="`color: ` + note2.color"
+          :class="{
+            'not-played': class1,
+            'played-note': class2,
+          }"
         >
           {{ note2.note }}
         </currentSong>
@@ -36,10 +40,19 @@ import playBtn from "./components/playBtn.vue";
         <playBtn @btn-click="clearArr">Delete</playBtn>
       </div>
     </section>
-    <div id="notes">
+    <div class="notes">
       <notes
         id="btn"
         v-for="item in notesArr"
+        @note-click="pushInArr(item)"
+        :key="item"
+        :style="`background-color: ` + item.color"
+      >
+        {{ item.note }}
+      </notes>
+      <notes
+        id="btn"
+        v-for="item in blackKeys"
         @note-click="pushInArr(item)"
         :key="item"
         :style="`background-color: ` + item.color"
@@ -51,7 +64,6 @@ import playBtn from "./components/playBtn.vue";
 </template>
 
 <script>
-//myAudio.src = notes.sound[0]; //how to access sequence from here
 export default {
   name: "Home",
   components: {
@@ -59,278 +71,388 @@ export default {
   },
   data() {
     return {
+      class1: true,
+      class2: false,
       myAudio: [],
       sequence: [],
       notesArr: [
         {
           note: "C",
           color: `#8D4A4A`,
-          bacCo: `#424966`,
           sound: `./C2.mp3`,
         },
         {
           note: "D",
           color: `#94593F`,
-          bacCo: `#424966`,
           sound: `./D2.mp3`,
         },
         {
           note: "E",
           color: `#8B814B`,
-          bacCo: `#424966`,
           sound: `./E2.mp3`,
         },
         {
           note: "F",
           color: `#426648`,
-          bacCo: `#424966`,
           sound: `./F2.mp3`,
         },
         {
           note: "G",
           color: `#614896`,
-          bacCo: `#424966`,
           sound: `./G2.mp3`,
         },
         {
           note: "A",
           color: `#864496`,
-          bacCo: `#424966`,
           sound: `./A2.mp3`,
         },
         {
           note: "B",
           color: `#8B4366`,
-          bacCo: `#424966`,
           sound: `./B2.mp3`,
         },
         {
           note: "C",
           color: `#8D4A4A`,
-          bacCo: `#424966`,
           sound: `./C3.mp3`,
         },
         {
           note: "D",
           color: `#94593F`,
-          bacCo: `#424966`,
           sound: `./D3.mp3`,
         },
         {
           note: "E",
           color: `#8B814B`,
-          bacCo: `#424966`,
           sound: `./E3.mp3`,
         },
         {
           note: "F",
           color: `#426648`,
-          bacCo: `#424966`,
           sound: `./F3.mp3`,
         },
         {
           note: "G",
           color: `#614896`,
-          bacCo: `#424966`,
           sound: `./G3.mp3`,
         },
         {
           note: "A",
           color: `#864496`,
-          bacCo: `#424966`,
           sound: `./A3.mp3`,
         },
         {
           note: "B",
           color: `#8B4366`,
-          bacCo: `#424966`,
           sound: `./B3.mp3`,
         },
         {
           note: "C",
           color: `#8D4A4A`,
-          bacCo: `#424966`,
           sound: `./C4.mp3`,
         },
         {
           note: "D",
           color: `#94593F`,
-          bacCo: `#424966`,
           sound: `./D4.mp3`,
         },
         {
           note: "E",
           color: `#8B814B`,
-          bacCo: `#424966`,
           sound: `./E4.mp3`,
         },
         {
           note: "F",
           color: `#426648`,
-          bacCo: `#424966`,
           sound: `./F4.mp3`,
         },
         {
           note: "G",
           color: `#614896`,
-          bacCo: `#424966`,
           sound: `./G4.mp3`,
         },
         {
           note: "A",
           color: `#864496`,
-          bacCo: `#424966`,
           sound: `./A4.mp3`,
         },
         {
           note: "B",
           color: `#8B4366`,
-          bacCo: `#424966`,
           sound: `./B4.mp3`,
         },
         {
           note: "C",
           color: `#8D4A4A`,
-          bacCo: `#424966`,
           sound: `./C5.mp3`,
         },
         {
           note: "D",
           color: `#94593F`,
-          bacCo: `#424966`,
           sound: `./D5.mp3`,
         },
         {
           note: "E",
           color: `#8B814B`,
-          bacCo: `#424966`,
           sound: `./E5.mp3`,
         },
         {
           note: "F",
           color: `#426648`,
-          bacCo: `#424966`,
           sound: `./F5.mp3`,
         },
         {
           note: "G",
           color: `#614896`,
-          bacCo: `#424966`,
           sound: `./G5.mp3`,
         },
         {
           note: "A",
           color: `#864496`,
-          bacCo: `#424966`,
           sound: `./A5.mp3`,
         },
         {
           note: "B",
           color: `#8B4366`,
-          bacCo: `#424966`,
           sound: `./B5.mp3`,
         },
         {
           note: "C",
           color: `#8D4A4A`,
-          bacCo: `#424966`,
           sound: `./C6.mp3`,
         },
         {
           note: "D",
           color: `#94593F`,
-          bacCo: `#424966`,
           sound: `./D6.mp3`,
         },
         {
           note: "E",
           color: `#8B814B`,
-          bacCo: `#424966`,
           sound: `./E6.mp3`,
         },
         {
           note: "F",
           color: `#426648`,
-          bacCo: `#424966`,
           sound: `./F6.mp3`,
         },
         {
           note: "G",
           color: `#614896`,
-          bacCo: `#424966`,
           sound: `./G6.mp3`,
         },
         {
           note: "A",
           color: `#864496`,
-          bacCo: `#424966`,
           sound: `./A6.mp3`,
         },
         {
           note: "B",
           color: `#8B4366`,
-          bacCo: `#424966`,
           sound: `./B6.mp3`,
         },
         {
           note: "C",
           color: `#8D4A4A`,
-          bacCo: `#424966`,
           sound: `./C7.mp3`,
         },
         {
           note: "D",
           color: `#94593F`,
-          bacCo: `#424966`,
           sound: `./D7.mp3`,
         },
         {
           note: "E",
           color: `#8B814B`,
-          bacCo: `#424966`,
           sound: `./E7.mp3`,
         },
         {
           note: "F",
           color: `#426648`,
-          bacCo: `#424966`,
           sound: `./F7.mp3`,
         },
         {
           note: "G",
           color: `#614896`,
-          bacCo: `#424966`,
           sound: `./G7.mp3`,
         },
         {
           note: "A",
           color: `#864496`,
-          bacCo: `#424966`,
           sound: `./A7.mp3`,
         },
         {
           note: "B",
           color: `#8B4366`,
-          bacCo: `#424966`,
           sound: `./B7.mp3`,
         },
         {
           note: "¼",
           color: `#868686`,
-          bacCo: `#424966`,
           sound: `./quarterPause.mp4`,
         },
         {
           note: "½",
           color: `#989699`,
-          bacCo: `#424966`,
           sound: `./halfPause.mp4`,
         },
         {
           note: "1",
           color: `#A6A3A6`,
-          bacCo: `#424966`,
           sound: `./wholePause.mp4`,
+        },
+      ],
+      blackKeys: [
+        {
+          note: "Db",
+          color: `#94593F90`,
+          sound: `./Db2.mp3`,
+        },
+        {
+          note: "Eb",
+          color: `#8B814B90`,
+          sound: `./Eb2.mp3`,
+        },
+        {
+          note: "Gb",
+          color: `#61489690`,
+          sound: `./Gb2.mp3`,
+        },
+        {
+          note: "Ab",
+          color: `#86449690`,
+          sound: `./Ab2.mp3`,
+        },
+        {
+          note: "Bb",
+          color: `#8B436690`,
+          sound: `./Bb2.mp3`,
+        },
+        {
+          note: "Db",
+          color: `#94593F90`,
+          sound: `./Db3.mp3`,
+        },
+        {
+          note: "Eb",
+          color: `#8B814B90`,
+          sound: `./Eb3.mp3`,
+        },
+        {
+          note: "Gb",
+          color: `#61489690`,
+          sound: `./Gb3.mp3`,
+        },
+        {
+          note: "Ab",
+          color: `#86449690`,
+          sound: `./Ab3.mp3`,
+        },
+        {
+          note: "Bb",
+          color: `#8B436690`,
+          sound: `./Bb3.mp3`,
+        },
+        {
+          note: "Db",
+          color: `#94593F90`,
+          sound: `./Db4.mp3`,
+        },
+        {
+          note: "Eb",
+          color: `#8B814B90`,
+          sound: `./Eb4.mp3`,
+        },
+        {
+          note: "Gb",
+          color: `#61489690`,
+          sound: `./Gb4.mp3`,
+        },
+        {
+          note: "Ab",
+          color: `#86449690`,
+          sound: `./Ab4.mp3`,
+        },
+        {
+          note: "Bb",
+          color: `#8B436690`,
+          sound: `./Bb4.mp3`,
+        },
+
+        {
+          note: "Db",
+          color: `#94593F90`,
+          sound: `./Db5.mp3`,
+        },
+        {
+          note: "Eb",
+          color: `#8B814B90`,
+          sound: `./Eb5.mp3`,
+        },
+        {
+          note: "Gb",
+          color: `#61489690`,
+          sound: `./Gb5.mp3`,
+        },
+        {
+          note: "Ab",
+          color: `#86449690`,
+          sound: `./Ab5.mp3`,
+        },
+        {
+          note: "Bb",
+          color: `#8B436690`,
+          sound: `./Bb5.mp3`,
+        },
+        {
+          note: "Db",
+          color: `#94593F90`,
+          sound: `./Db6.mp3`,
+        },
+        {
+          note: "Eb",
+          color: `#8B814B90`,
+          sound: `./Eb6.mp3`,
+        },
+        {
+          note: "Gb",
+          color: `#61489690`,
+          sound: `./Gb6.mp3`,
+        },
+        {
+          note: "Ab",
+          color: `#86449690`,
+          sound: `./Ab6.mp3`,
+        },
+        {
+          note: "Bb",
+          color: `#8B436690`,
+          sound: `./Bb6.mp3`,
+        },
+        {
+          note: "Db",
+          color: `#94593F90`,
+          sound: `./Db7.mp3`,
+        },
+        {
+          note: "Eb",
+          color: `#8B814B90`,
+          sound: `./Eb7.mp3`,
+        },
+        {
+          note: "Gb",
+          color: `#61489690`,
+          sound: `./Gb7.mp3`,
+        },
+        {
+          note: "Ab",
+          color: `#86449690`,
+          sound: `./Ab7.mp3`,
+        },
+        {
+          note: "Bb",
+          color: `#8B436690`,
+          sound: `./Bb7.mp3`,
         },
       ],
       measure: `300`,
@@ -348,11 +470,8 @@ export default {
       this.myAudio.forEach(async (sound, index) => {
         setTimeout(function () {
           sound.play();
-        }, index * this.measure);
-      });
-      this.sequence.forEach(async (note, index) => {
-        setTimeout(function () {
-          note.bacCo = "#FFFFFF90";
+          sound.class1 = false;
+          sound.class2 = true;
         }, index * this.measure);
       });
     },
@@ -378,6 +497,12 @@ export default {
 </script>
 
 <style scoped>
+.not-played {
+  background-color: #424966;
+}
+.played-note {
+  background-color: #ffffff70;
+}
 #current {
   display: flex;
   background-color: #424966;
@@ -389,13 +514,14 @@ export default {
 #middle {
   display: flex;
 }
-#notes {
+.notes {
   display: flex;
   height: 180px;
   justify-content: space-between;
   left: 10px;
   bottom: 50px;
   margin: 50px;
+  flex-wrap: wrap;
 }
 #container {
   margin: 50px;
