@@ -467,11 +467,12 @@ export default {
       noteSound.play();
     },
     play: function () {
-      this.myAudio.forEach(async (sound, index) => {
+      this.myAudio.forEach(async (sound, index, note) => {
         setTimeout(function () {
           sound.play();
-          sound.class1 = false;
-          sound.class2 = true;
+          note.classList.add(`played-note`);
+          note.classList.remove(`not-played`);
+          console.log(note);
         }, index * this.measure);
       });
     },
@@ -517,6 +518,7 @@ export default {
 .notes {
   display: flex;
   height: 180px;
+  width: 1788px;
   justify-content: space-between;
   left: 10px;
   bottom: 50px;
