@@ -461,11 +461,10 @@ export default {
       let noteSound = new Audio(n.sound);
       noteSound.play();
     },
-    play: function (Cur) {
+    play: function () {
       this.myAudio.forEach(async (sound, index) => {
         setTimeout(function () {
           sound.play();
-          Cur = "played-note";
         }, index * this.measure);
       });
     },
