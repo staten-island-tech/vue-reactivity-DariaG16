@@ -25,17 +25,14 @@ import playBtn from "./components/playBtn.vue";
           v-for="note2 in sequence"
           :key="note2"
           :title="note2"
-          :style="`color: ` + note2.color"
-          :class="{
-            'not-played': class1,
-            'played-note': class2,
-          }"
+          :class="currentClass"
+          :style="[`color: ` + note2.color]"
         >
           {{ note2.note }}
         </currentSong>
       </div>
       <div id="playPause">
-        <playBtn @btn-click="play">Play</playBtn>
+        <playBtn @btn-click="play(this.currentClass)">Play</playBtn>
         <playBtn @btn-click="undo">Undo</playBtn>
         <playBtn @btn-click="clearArr">Delete</playBtn>
       </div>
@@ -71,8 +68,7 @@ export default {
   },
   data() {
     return {
-      class1: true,
-      class2: false,
+      currentClass: "not-played",
       myAudio: [],
       sequence: [],
       notesArr: [
@@ -462,17 +458,14 @@ export default {
     pushInArr(n) {
       this.sequence.push(n);
       this.myAudio.push(new Audio(n.sound));
-      console.log(this.myAudio);
       let noteSound = new Audio(n.sound);
       noteSound.play();
     },
-    play: function () {
-      this.myAudio.forEach(async (sound, index, note) => {
+    play: function (Cur) {
+      this.myAudio.forEach(async (sound, index) => {
         setTimeout(function () {
           sound.play();
-          note.classList.add(`played-note`);
-          note.classList.remove(`not-played`);
-          console.log(note);
+          Cur = "played-note";
         }, index * this.measure);
       });
     },
