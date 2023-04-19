@@ -31,7 +31,7 @@ import playBtn from "./components/playBtn.vue";
         </currentSong>
       </div>
       <div id="playPause">
-        <playBtn @btn-click="play(this.currentClass)">Play</playBtn>
+        <playBtn @btn-click="play">Play</playBtn>
         <playBtn @btn-click="undo">Undo</playBtn>
         <playBtn @btn-click="clearArr">Delete</playBtn>
       </div>
