@@ -25,7 +25,6 @@ import playBtn from "./components/playBtn.vue";
           v-for="note2 in sequence"
           :key="note2"
           :title="note2"
-          :class="currentClass"
           :style="[`color: ` + note2.color]"
         >
           {{ note2.note }}
@@ -68,7 +67,6 @@ export default {
   },
   data() {
     return {
-      currentClass: "not-played",
       myAudio: [],
       sequence: [],
       notesArr: [
